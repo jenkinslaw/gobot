@@ -1,4 +1,6 @@
 require 'google/api_client'
+require 'xmlsimple'
+require 'pp'
 require 'yaml'
 
 module Jenkins
@@ -29,17 +31,37 @@ module Jenkins
     end
   end
 
+  Client = GoogleApp::getClient()
+
 end
 
 
-client = Jenkins::GoogleApp::getClient()
-drive = client.discovered_api('drive', 'v2')
-calendar = client.discovered_api('calendar', 'v3')
 
-result = client.execute(:api_method => drive.files.get,
+def getFeed (uri)
+  result = Jenkins::Client.execute(:uri => uri)
+  XmlSimple.xml_in(result.body, 'KeyAttr' => 'name')
+end
+
+  
+drive = Jenkins::Client.discovered_api('drive', 'v2')
+calendar = Jenkins::Client.discovered_api('calendar', 'v3')
+
+result = Jenkins::Client.execute(:api_method => drive.files.get,
                      :parameters => { 'fileId' => ENV['GOOGLE_WORKSHEET_ID']}
                      )
-result = client.execute(:uri => 'https://spreadsheets.google.com/feeds/spreadsheets/private/full')
+doc = getFeed('https://spreadsheets.google.com/feeds/spreadsheets/private/full')
+
+# Getting spreadsheet key.
+key = doc["entry"][0]["id"][0][/full\/(.*)/, 1]
+puts key
+
+# Getting 
+list = getFeed("https://spreadsheets.google.com/feeds/worksheets/#{key}/private/full")
+pp list
 
 
-puts YAML::dump(result.body)
+
+
+
+
+
