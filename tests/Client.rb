@@ -12,10 +12,6 @@ class TestJenkinsClient < MiniTest::Unit::TestCase
       "The Google client is initialized successfully"
   end
 
-  def xtestApis
-   apis = @app.client.discovered_apis
-   puts YAML::dump(apis)
-  end
 end
 
 class TestSpreadsheet < MiniTest::Unit::TestCase
