@@ -1,6 +1,5 @@
 gobot
 =====
-
 A wrapper GoogleAPI to handle deployment tasks that require interacting with our Google services.
 
 Install:
@@ -11,9 +10,9 @@ Install:
 
 Synopsis:
 ---------
-`gobot --help`        Show this synopsis.
-`gobot [<command>]`   The basic signature for the gobot command.
+* `gobot --help` -- Show this synopsis.
+* `gobot [<command>]` -- The basic signature for the gobot command.
 
 Commands:
 ---------
-`add-restart-event`   Adds Live Site Server Restarted event to IT Events Calendar.
+* `add-restart-event` -- Adds Live Site Server Restarted event to IT Events Calendar.
