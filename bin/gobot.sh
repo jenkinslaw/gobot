@@ -26,7 +26,7 @@ synopsis()
   echo ''
   echo  Commands:
   echo '---------'
-  echo 'add-event     Print notification email to stdout.'
+  echo 'add-restart-event   Adds 'Live Site Server Restarted' event to IT Events Calendar.'
   echo ''
   echo ''
 }
@@ -51,9 +51,9 @@ fi
 
 
 # Set up command.
-if [ $1 = 'add-starup-event' ]
+if [ $1 = 'add-restart-event' ]
 then
-  command="add_startup_event"
+  command="add_restart_event"
 elif [ $1 = 'selftest' ]
 then
   command='selftest'
