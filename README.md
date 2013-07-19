@@ -1,6 +1,6 @@
 gobot
 =====
-A wrapper GoogleAPI to handle deployment tasks that require interacting with our Google services.
+A wrapper for the GoogleAPI ruby library to handle deployment tasks that require interacting with our Google services.
 
 Install:
 --------
