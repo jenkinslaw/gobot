@@ -4,7 +4,6 @@ require 'xmlsimple'
 module Jenkins
 
   class GoogleApp
-
     attr_reader :client
 
     def initialize
@@ -56,7 +55,6 @@ module Jenkins
       end
       result
     end
-
   end
 
 end

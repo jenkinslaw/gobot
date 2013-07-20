@@ -26,12 +26,9 @@ module Jenkins
     def getSpreadsheet(key)
       @app.getFeed "https://spreadsheets.google.com/ccc?key=#{key}"
     end
-
   end
 
-
   class Worksheet
-
     attr_reader :list
 
     def initialize id
