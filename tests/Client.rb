@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require "./gworksheet"
 
 class TestJenkinsClient < MiniTest::Unit::TestCase
-
   def setup
     @app = Jenkins::GoogleApp.new
   end
@@ -11,7 +10,6 @@ class TestJenkinsClient < MiniTest::Unit::TestCase
     assert_kind_of Google::APIClient, @app.client,
       "The Google client is initialized successfully"
   end
-
 end
 
 class TestSpreadsheet < MiniTest::Unit::TestCase
@@ -29,7 +27,6 @@ class TestSpreadsheet < MiniTest::Unit::TestCase
     assert_equal expected, id
       '#getIdByDocId works as expected.'
   end
-
 end
 
 class TestWorkSheet < MiniTest::Unit::TestCase
