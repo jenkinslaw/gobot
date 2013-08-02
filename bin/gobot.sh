@@ -26,6 +26,7 @@ synopsis()
   echo ''
   echo  Commands:
   echo '---------'
+  echo 'add-event <Subject> Adds an arbitrary event the IT calendar.'
   echo 'add-restart-event   Adds 'Live Site Server Restarted' event to IT Events Calendar.'
   echo ''
   echo ''
@@ -57,6 +58,9 @@ then
 elif [ $1 = 'selftest' ]
 then
   command='selftest'
+elif [ $1 = 'add-event' ] && [ $# -gt 1 ]  
+then
+  command="add_event['$2']"
 else
   echo "You must provide a command."
   synopsis
@@ -69,6 +73,6 @@ if [ $1 = "selftest" ]
 then
   rake -f $DIR/../Rakefile
 else
-  rake -f $DIR/../Rakefile $command
+  rake -f $DIR/../Rakefile "$command"
 fi
 
