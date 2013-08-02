@@ -4,7 +4,6 @@ require 'json'
 module Jenkins
 
   class ITCalendar 
-
     attr_reader :id
 
     def initialize
@@ -31,12 +30,9 @@ module Jenkins
       }
       @app.execute command
     end
-
-
   end
 
   class ITEvent
-
     attr_reader :timezone, :startDateTime, :endDateTime, :summary
 
     def initialize summary, body = ''
@@ -55,7 +51,6 @@ module Jenkins
       }
      JSON.dump(event)
     end
-
   end
 
 end

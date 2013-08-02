@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require "./gevent"
 require 'yaml'
 
-
 class TestEvent < MiniTest::Unit::TestCase
   def setup
     @calendar = Jenkins::ITCalendar.new
@@ -48,7 +47,5 @@ class TestEvent < MiniTest::Unit::TestCase
     end
 
   end
-
-
 end
 
