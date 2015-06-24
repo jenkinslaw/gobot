@@ -13,7 +13,7 @@ module Jenkins
     def getClient
       # Change client key path if different.
       key = Google::APIClient::KeyUtils.
-        load_from_pkcs12(ENV['HOME'] + '/.ssh/gworksheet.p12', 'notasecret')
+        load_from_pem(ENV['HOME'] + '/.ssh/gworksheet.pem', 'notasecret')
 
       client = Google::APIClient.new(
         :application_name => 'Jenkins Google App',
