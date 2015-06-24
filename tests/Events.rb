@@ -2,18 +2,18 @@ require 'minitest/autorun'
 require "./gevent"
 require 'yaml'
 
-class TestEvent < MiniTest::Unit::TestCase
+class TestEvent < Minitest::Test
   def setup
     @calendar = Jenkins::ITCalendar.new
     @event = Jenkins::ITEvent.new 'Test Event'
   end
 
-  def testId
+  def test_Id
     id = 'jenkinslaw.org_6qa5or8067ukkqs70dsf4bvpf4@group.calendar.google.com'
     assert_equal id, @calendar.id
   end
 
-  def testITEvent
+  def test_ITEvent
       datetime = DateTime.now
       assert_equal @event.startDateTime, @event.endDateTime,
         'ITEvent start and end time are the same.'
@@ -23,7 +23,7 @@ class TestEvent < MiniTest::Unit::TestCase
         'ITEvent has the expected summary.'
   end
 
-  def testEvent
+  def test_Event
     event = @event.getEvent
     expected = JSON.dump({
         'summary' => @event.summary,
@@ -35,7 +35,7 @@ class TestEvent < MiniTest::Unit::TestCase
       'ITEvent::getEvent() works as expected.'
   end
 
-  def testAddDeleteEvent
+  def test_AddDeleteEvent
     event = @calendar.addEvent @event.getEvent
     assert event.key?('id'),
       'An event has been added to the IT Event Calendar.'
