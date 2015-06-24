@@ -71,8 +71,8 @@ fi
 # Run command.
 if [ $1 = "selftest" ]
 then
-  rake -f $DIR/../Rakefile
+  bundle exec rake -f $DIR/../Rakefile
 else
-  rake -f $DIR/../Rakefile "$command"
+  bundle exec rake -f $DIR/../Rakefile "$command"
 fi
 
