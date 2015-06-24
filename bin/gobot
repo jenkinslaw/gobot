@@ -69,10 +69,12 @@ fi
 
 
 # Run command.
+pushd $DIR/.. > /dev/null
+
 if [ $1 = "selftest" ]
 then
-  bundle exec rake -f $DIR/../Rakefile
+  bundle exec rake
 else
-  bundle exec rake -f $DIR/../Rakefile "$command"
+  bundle exec rake $command
 fi
 
